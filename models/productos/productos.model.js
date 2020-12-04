@@ -102,7 +102,7 @@ class ProductsModel{
           talla_l = Number(talla_l);
         talla_xl = Number(talla_xl);
             const _id = new ObjectID(id);
-            const updOps = {"$set": {"colores.$":{color, talla_s, talla_m, talla_l, talla_xl, img, cod_color}}};
+            const updOps = {"$set": {"colores.$":{ide:_id, color, talla_s, talla_m, talla_l, talla_xl, img, cod_color}}};
             let updDoc = await this.collection.findOneAndUpdate({"colores.ide":_id}, updOps,{returnOriginal: false});
             return updDoc;
 
@@ -121,8 +121,8 @@ class ProductsModel{
             talla_11 = Number(talla_11);
             talla_13 = Number(talla_13);
             talla_15 = Number(talla_15);
-            const _id = new ObjectID(id);
-            const updOps = {"$set": {"colores.$":{color, talla_3, talla_5, talla_7, talla_9, talla_11, talla_13, talla_15, cod_color, img}}};
+            // const _id = new ObjectID(id);
+            const updOps = {"$set": {"colores.$":{ide:_id, color, talla_3, talla_5, talla_7, talla_9, talla_11, talla_13, talla_15, cod_color, img}}};
             let updDoc = await this.collection.findOneAndUpdate({"colores.ide":_id}, updOps,{returnOriginal: false});
             return updDoc;
 
