@@ -1,0 +1,45 @@
+un singleton es un patron donde tengo una variable inicialmente vacia y luego 
+
+Luego de instalar el driver de mongodb y de hacer la programacion que conecta a la base de datos con el patron singleton
+Nos dirigimos al archivo www que esta ubicado en la carpeta bin
+aqui estan las instrucciones de cuando corre el servidor, ahi programamos el "Inicio de base de datos"
+luego de esto en nuestra carpeta de models, creamos una carpeta, en nuestro caso es de productos y creamos un archivo JS que es 
+donde crearemos el crud del mismo modulo
+
+
+
+{
+    _id, 
+    categoría,
+    nombre,
+    precio,
+    colores{
+        color{
+            imagen{
+                
+        
+        }
+    }
+}
+
+
+TAREAS
+C = Create
+R = Read
+U = Update
+D = Delete
+
+1-BLUSA/JEANS C= TRUE, R=TRUE, U=TRUE, D = TRUE
+2-Blusa C=True, R=True, U = True, D = Pendiente
+3-Jean C=True, R=TRUE, U= True, D=Pendiente 
+
+
+
+npm install --save bcrypt-nodejs --> Empezando con el tema de JSON Web Token
+npm install --save jsonwebtoken
+npm install --save passport passport-jwt
+npm install --save dotenv
+
+npm install -g create-react-app
+create-react-app "nombre-FrontEnd"
+entrar en "nombre-FrontEnd" y npm start
