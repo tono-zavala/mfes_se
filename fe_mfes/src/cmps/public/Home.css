@@ -1,0 +1,24 @@
+.loginsection{
+    width: 100%;
+    align-self: flex-end;
+    justify-self: center;
+    margin-bottom: 2em;
+    margin-top: 70vh !important;
+    margin:0;
+    display:flex;
+    justify-content: space-around;
+}
+
+.loginsection button{
+    margin:0 !important;
+    color: white;
+    border: 1px solid  white;
+    background-color: #DB7093;
+    border-radius: 3px;
+    padding: 1em;
+    margin: 1em;
+    font-size: 21px;
+    font-weight: bold;
+    width: calc(50% - 1em);
+    
+}

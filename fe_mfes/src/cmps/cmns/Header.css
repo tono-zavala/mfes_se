@@ -1,0 +1,12 @@
+.header{
+    box-sizing: border-box;
+    margin: -1em auto 1em auto;
+    
+}
+.header h1{
+    box-sizing: border-box;
+    padding: 0.5em 1em;
+    text-align: center;
+    margin: 0;
+    
+}
