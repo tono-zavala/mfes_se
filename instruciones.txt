@@ -7,22 +7,6 @@ luego de esto en nuestra carpeta de models, creamos una carpeta, en nuestro caso
 donde crearemos el crud del mismo modulo
 
 
-
-{
-    _id, 
-    categoría,
-    nombre,
-    precio,
-    colores{
-        color{
-            imagen{
-                
-        
-        }
-    }
-}
-
-
 TAREAS
 C = Create
 R = Read
