@@ -1,3 +1,56 @@
+# mfes
+REQUISITOS
+1) node js instalado
+2) express generator instalado
+    sudo npm install -g express-generator
+3) nodemon instalado
+    npm install -g nodemon
+
+
+Crear El proyecto
+
+1) Crear el Boiler plate
+    express --css less --hbs --git bckTestProject
+2) Instalar dependencias
+    Entrar en la carpeta del proyecto
+    npm install
+3) Correr el programa
+    nodemon
+4) Verificamos en Browser
+    http://localhost:3000
+
+Creamos Archivo api.js en routes
+
+creamos una carpeta "api" en routes
+
+
+
+<!-- Opcional para poder usar SQL Lite -->
+Instrucciones para usar Sqlite en nuestro Proyecto
+npm install --save sqlite3
+npm install --> Instalar un modulo
+--save --> Agregar dentro de la lista de dependencias el archivo package.json
+<!-- FIN sqlite -->
+
+luego de instalar sqlite 3
+creamos una carpeta llamada models
+creamos dos archivo dentro de models
+1- db.js --> el cual tiene un patron llamado singletoon que busca la base de datos, en caso de no tenerla, la cre
+2- productos.model.js --> el cual contiene varias consultas sql
+
+
+<!-- Buscar -->
+Inyeccion de dependencias
+programacion funcional
+javascript handler y promesas
+<!-- Fin buscar -->
+
+<!-- Info sobre Mongodb -->
+para iniciar el servidor se utiliza esta linea --> mongod --dbpath ~/data/db
+tambien podemos ir a --> C:\Program Files\MongoDB\Server\4.4\bin y abrir el archivo mongod.exe
+para implementar mongo db al proyecto --> npm install --save mongodb
+<!-- Fin info sobre mongodb -->
+
 un singleton es un patron donde tengo una variable inicialmente vacia y luego 
 
 Luego de instalar el driver de mongodb y de hacer la programacion que conecta a la base de datos con el patron singleton
