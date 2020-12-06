@@ -201,6 +201,21 @@ router.delete(
 
     }
 );
+router.put(
+  '/actu/:id/:ide', async(req, res)=>{
+    try{
+      let {id, ide} = req.params;
+      let resultado = await mdbProductModel.updSDoc(id, ide);
+      res.status(200).json(resultado)
+
+  }
+  catch(ex){
+      console.log(ex);
+      res.status(500).json({'msg':"Algo salio mal"});
+  }
+  }
+);
+
 
 router.get('/rstock/:stock', async (req, res) => {
     try {

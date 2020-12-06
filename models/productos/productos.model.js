@@ -1,3 +1,4 @@
+const { ObjectId } = require('mongodb');
 var MongoDB = require('../dbm');
 var ObjectID = require('mongodb').ObjectID;
 
@@ -158,6 +159,23 @@ class ProductsModel{
         }
 
     };
+
+//metodo para borrar un subdocumento -- FMAR
+async updSDoc(idBlusa, idColor)
+{
+  try{
+    let filter = {"_id" : new ObjectId(idBlusa)};
+    let update = {"$pull": {"colores":{"ide": new ObjectId(idColor)}}};
+    let result =  await this.collection.findOneAndUpdate(filter, update);
+    return result;
+}
+catch(ex){
+    consoloe.log(ex);
+    throw(ex);
+
+}no
+}
+// FIN FMAR
 
 // Proyecciones (conjunto especifico de datos del conjunto global)
   // SELECT _id, sku, name, price from productos;
