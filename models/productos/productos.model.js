@@ -25,6 +25,34 @@ class ProductsModel{
         throw(ex);
       }
     }
+    //Filtro de busqueda Por categoria de Jeans FMAR
+
+    async getJeans(){
+      try{
+        let resulta = await this.collection.find({categoria:'Jeans'}).toArray();
+        return resulta;
+
+      }catch(ex){
+        throw(ex);
+      }
+    }
+
+    //fin de filtro de busqueda FMAR
+
+
+  //Filtro de busqueda por categoria de Blusas FMAR 
+  
+  async getBlusas(){
+    try{
+      let resultad = await this.collection.find({categoria:'Blusas'}).toArray();
+      return resultad;
+
+    }catch(ex){
+      throw(ex);
+    }
+  }
+
+  //FIN de filtro de busqueda FMAR 
 
     async addOne( document ) {
       try{
@@ -167,7 +195,7 @@ async updSDoc(idBlusa, idColor)
     let filter = {"_id" : new ObjectId(idBlusa)};
     let update = {"$pull": {"colores":{"ide": new ObjectId(idColor)}}};
     let result =  await this.collection.findOneAndUpdate(filter, update);
-    return result;
+    return result; 
 }
 catch(ex){
     consoloe.log(ex);

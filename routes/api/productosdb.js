@@ -22,6 +22,37 @@ router.get(
     }
 );
 
+//Ruta para obtener solo Jeans 
+router.get(
+  '/Jeans', async (req, res)=>{
+    try{
+      const resultado = await mdbProductModel.getJeans();
+      res.status(200).json(resultado);
+  }
+ catch(ex){
+     console.log(ex);
+     res.status(500).json("Algo paso");
+ }
+  }
+)
+
+//fin de la ruta de Jeans 
+
+//ruta para obtener todas las Blusas 
+
+router.get(
+  '/Blusas', async (req, res)=>{
+    try{
+      const resultado = await mdbProductModel.getBlusas();
+      res.status(200).json(resultado);
+  }
+ catch(ex){
+     console.log(ex);
+     res.status(500).json("Algo paso");
+ }
+  }
+)
+//fin de la ruta de obtener Blusas 
 
 router.get(
     '/one/:id', async (req, res)=>{
