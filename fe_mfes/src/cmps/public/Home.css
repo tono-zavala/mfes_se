@@ -1,24 +1,30 @@
-.loginsection{
-    width: 100%;
-    align-self: flex-end;
-    justify-self: center;
-    margin-bottom: 2em;
-    margin-top: 70vh !important;
-    margin:0;
-    display:flex;
-    justify-content: space-around;
-}
-
-.loginsection button{
-    margin:0 !important;
-    color: white;
-    border: 1px solid  white;
-    background-color: #DB7093;
-    border-radius: 3px;
-    padding: 1em;
-    margin: 1em;
-    font-size: 21px;
+.homesection{
+    display: flex;
+    flex-direction: column;
+    flex:1;
+    justify-content: center;
+    align-self: center;
+    margin-bottom:2.5em ;
+  }
+  .homesection section:nth-child(1){
+    flex:7;
+  }
+  .homesection section:nth-child(2){
+    flex:1;
+  }
+  .homesection section button{
+    box-sizing: border-box;
+    border:1px solid #000;
+    background-color: #fff;
+    border-radius: 10px;
+    padding:1em 2em;
+    box-shadow: 1px 1px 3px #000;
     font-weight: bold;
-    width: calc(50% - 1em);
-    
+    margin:1em;
+  }
+  
+img {
+  border-radius: 50%;
+  box-shadow: 1px 1px 10px #DB7093;
+  width: 90%;
 }

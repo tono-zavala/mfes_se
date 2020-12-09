@@ -1,0 +1,37 @@
+.productoList {
+    padding: 1em;
+    margin: -1em;
+    background-color: #fdeaef;
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    overflow-y: scroll;
+    justify-content: center;
+
+}
+
+.productoList li {
+    box-sizing: border-box;
+    padding: 0.5em;
+    margin: 0.35em;
+    flex-basis: 90%;
+    min-height: 400px;
+    background-color: #fff;
+    border-bottom: 1px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.productoList li span {
+    display: flex;
+    width: 60px;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    box-shadow: 1px 1px 3px #000;
+    margin: 0.5em;
+}
