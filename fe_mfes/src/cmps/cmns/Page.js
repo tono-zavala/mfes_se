@@ -9,7 +9,7 @@ const Page = ( {children, headding, footer} ) =>{
         "marginTop": (hofset > 0) ? `41px`: '0px'
     }
     let cssStylesContent = {
-        "minHeight": (hofset > 0) ? `calc(100vh - ${hofset}px)`: `100%`,
+        "minHeight": (hofset > 0) ? `calc(100vh - ${(hofset+ 32)}px)`: `100%`,
         
     }
     return(

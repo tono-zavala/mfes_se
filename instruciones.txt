@@ -84,3 +84,5 @@ entrar en "nombre-FrontEnd" y npm start
 npm install --save react-router-dom
 npm install --save react-icons
 npm install --save react-router-transition
+
+npm install --save axios

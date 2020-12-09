@@ -1,41 +1,68 @@
-import {useState} from 'react';
+import { useState} from 'react';
+import {Link, useHistory, useLocation} from 'react-router-dom';
 import Page from '../cmns/Page';
 import Field from '../cmns/Field';
-import { Link } from 'react-router-dom';
+
+import {useStateContext} from '../../utlts/Context';
+
+import axios from 'axios';
 
 import './Login.css';
+import { LOGIN_FETCHING, LOGIN_FETCHING_FAILED, LOGIN_SUCCESS } from '../../utlts/store/reducers/auth.reducer';
+//Componente que maneja el estado.
 
-const Login = ()=> {
+//React state es gestionar en variables los valores dinamicos del componente
+//valores dinámicos midifcan el DOM (shadowDOM)
+const Login = () => {
+  //const [email, setEmail] = useState("");
+  //const [pswd, setPswd] = useState("");
 
-    const [form, setForm] = useState({
-        email:'',
-        password:''
+  const [form, setForm] = useState({
+    email:'',
+    password:''
+  });
+
+  const [, dispatch] = useStateContext();
+  const routeHistory = useHistory();
+  const location = useLocation();
+
+  const onChange = (e)=>{
+    const  {name, value} = e.target;
+    setForm({
+      ...form, //spread Operator 
+      [name] : value,
     });
+  }
 
-    const onChange = (e)=>{
-        const {name, value} = e.target;
-        setForm ({
-            ...form,  
-            [name] : value,
-        });
+  let { from } = location.state || { from: { pathname: "/" } };
+  const onLogin = (e)=>{
+    const { email, password} = form;
+    //call a model (axios)
+    dispatch({ type: LOGIN_FETCHING });
+    axios.post(
+      '/api/seguridad/login',
+       {email, password}
+    ).then(({data})=>{
+      dispatch({type:LOGIN_SUCCESS, payload:data});
+      routeHistory.replace(from);
+    }).catch((err)=>{
+      dispatch({ type: LOGIN_FETCHING_FAILED });
+      console.log(err);
+    })
+  }
 
-    }
+  return (
+    <Page headding="Iniciar Sesión">
+      <section className="loginsection">
+        <Field id="email" caption="Correo" type="text" value={form.email} onChange={onChange} />
+        <Field id="password" caption="Contraseña" type="password" value={form.password} onChange={onChange} />
+        <button onClick={onLogin}>Login</button>
+        <br/>
+        <Link to="/">Go Home</Link>
+      </section>
+    </Page>
+  )
 
-    const onLogin = (e)=>{
-        const {email, password} = form;
-        console.log(email);
-        console.log(password);
-        }
-        return(
-            <Page headding="Iniciar Sesión" footer={true}>
-                <section className="loginsection">
-                    <Field id="email" caption="Correo: " type="text" value={form.email} onChange={onChange} />
-                    <Field id="password" caption="Contraseña: " type="password" value={form.password} onChange={onChange} />
-                    <button onClick={onLogin}>Login</button>
-                    <Link to="/">Go Home</Link>
-                </section>
-            </Page>
-        )
 }
 
 export default Login;

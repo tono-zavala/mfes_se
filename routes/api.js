@@ -23,13 +23,17 @@ passport.use(
         }
     )
 );
-
+const heartBeat = (req, res)=>{
+    res.status(200).json({ok:true});
+  }
 const jwtAuthMiddleware = passport.authenticate('jwt', {session:false});
 
 
 const productosRutas = require ('./api/productosdb');
 const seguridadRutas = require('./api/seguridad');
+
 router.use('/seguridad', seguridadRutas);
+router.get('/heartbeat', jwtAuthMiddleware, heartBeat);
 router.use('/productos', jwtAuthMiddleware, productosRutas); 
 
 router.get(
