@@ -80,7 +80,3 @@ npm install --save dotenv
 npm install -g create-react-app
 create-react-app "nombre-FrontEnd"
 entrar en "nombre-FrontEnd" y npm start
-
-npm install --save react-router-dom
-npm install --save react-icons
-npm install --save react-router-transition
