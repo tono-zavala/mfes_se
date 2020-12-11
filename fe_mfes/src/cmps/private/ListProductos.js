@@ -1,6 +1,9 @@
 import Page from '../cmns/Page';
 import { AddButton } from '../cmns/Buttons';
 import './ListProductos.css';
+import { useEffect, useState } from 'react';
+import { useStateContext } from '../../utlts/Context';
+import {paxios} from '../../utlts/Axios';
 
 const dummyData = [
     {"_id": 1,"label":"contenido 1","count":1},
@@ -22,10 +25,22 @@ const dummyData = [
 ];
 
 const ListProductos = () =>{
+    const[{prods}, dispath]= useStateContext();
 
     const listElements = dummyData.map((o)=>{
         return (<li key={o._id}>{o.label} <span>{o.count}</span></li>);
     })
+    useEffect(
+        ()=>{
+            paxios.get('/api/productos/blusas')
+            .then(({data})=>{
+                console.log(data);
+            })
+            .catch((ex)=>{
+                console.log(ex);
+            });
+        }
+    ,[]);
     return (
         <Page headding="Blusas" footer={true}>
             <ul className="productoList">

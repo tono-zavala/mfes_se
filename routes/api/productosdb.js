@@ -24,7 +24,7 @@ router.get(
 
 //Ruta para obtener solo Jeans 
 router.get(
-  '/Jeans', async (req, res)=>{
+  '/jeans', async (req, res)=>{
     try{
       const resultado = await mdbProductModel.getJeans();
       res.status(200).json(resultado);
@@ -41,7 +41,7 @@ router.get(
 //ruta para obtener todas las Blusas 
 
 router.get(
-  '/Blusas', async (req, res)=>{
+  '/blusas', async (req, res)=>{
     try{
       const resultado = await mdbProductModel.getBlusas();
       res.status(200).json(resultado);
@@ -233,7 +233,7 @@ router.delete(
     }
 );
 router.put(
-  '/actu/:id/:ide', async(req, res)=>{
+  '/upd/:id/:ide', async(req, res)=>{
     try{
       let {id, ide} = req.params;
       let resultado = await mdbProductModel.updSDoc(id, ide);

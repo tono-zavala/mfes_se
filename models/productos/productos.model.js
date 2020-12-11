@@ -29,7 +29,7 @@ class ProductsModel{
 
     async getJeans(){
       try{
-        let resulta = await this.collection.find({categoria:'Jeans'}).toArray();
+        let resulta = await this.collection.find({categoria:'jeans'}).toArray();
         return resulta;
 
       }catch(ex){
@@ -44,7 +44,7 @@ class ProductsModel{
   
   async getBlusas(){
     try{
-      let resultad = await this.collection.find({categoria:'Blusas'}).toArray();
+      let resultad = await this.collection.find({categoria:'blusas'}).toArray();
       return resultad;
 
     }catch(ex){

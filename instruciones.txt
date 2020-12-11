@@ -86,3 +86,9 @@ npm install --save react-icons
 npm install --save react-router-transition
 
 npm install --save axios
+
+
+
+
+
+DSUBIR A HEROKU
