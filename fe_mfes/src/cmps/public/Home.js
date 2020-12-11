@@ -16,7 +16,7 @@ const Home = ( {} )=>{
                     <img src={logo}/>
                 </section>
                 <section><button onClick={(e)=>{setRedirect("/login")}}>Iniciar Sesión</button>
-                <button onClick={(e)=>{setRedirect("/sigin")}}>Registrarse</button>
+                <button onClick={(e)=>{setRedirect("/signin")}}>Registrarse</button>
                 </section>
             </section>
         </Page>
