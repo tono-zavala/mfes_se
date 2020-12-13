@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { useStateContext } from '../../utlts/Context';
 import {paxios} from '../../utlts/Axios';
 
-import {PRODUCT_LOADED, PRODUCT_LOADING} from '../../utlts/store/reducers/prods.reducer';
+import {PRODUCT_LOADED, PRODUCT_LOADING, PRODUCT_INIT} from '../../utlts/store/reducers/prods.reducer';
 
 // const dummyData = [
 //     {"_id": 1,"label":"contenido 1","count":1},
@@ -38,6 +38,7 @@ const ListProductos = () =>{
     ;
     useEffect(
         ()=>{
+            dispatch({type: PRODUCT_INIT});
             dispatch({type: PRODUCT_LOADING})
             paxios.get('/api/productos/blusas')
             .then(({data})=>{

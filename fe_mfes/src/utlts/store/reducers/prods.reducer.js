@@ -13,6 +13,7 @@ const initialState = {
   export const PRODUCT_LOADED = "PRODUCT_LOADED";
   export const PRODUCT_ERROR = "PRODUCT_ERROR";
   export const PRODUCT_SET_CURRENT = "PRODUCT_SET_CURRENT";
+  export const PRODUCT_INIT = "PRODUCT_INIT";
   
   
   const prodsReducer = (state = initialState, action = {}) =>{
@@ -21,6 +22,8 @@ const initialState = {
         return {...state, fetching:true};
       case PRODUCT_LOADED:
         return {...state, productos:[...state.productos, ...action.payload], fetching:false}
+      case PRODUCT_INIT:
+        return {...state, productos:[]}
       case PRODUCT_ERROR:
         return {...state, fetching:false}
       case PRODUCT_SET_CURRENT:

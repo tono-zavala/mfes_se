@@ -5,26 +5,7 @@ import { useEffect, useState } from 'react';
 import { useStateContext } from '../../utlts/Context';
 import {paxios} from '../../utlts/Axios';
 
-import {PRODUCT_LOADED, PRODUCT_LOADING} from '../../utlts/store/reducers/prods.reducer';
-
-// const dummyData = [
-//     {"_id": 1,"label":"contenido 1","count":1},
-//     {"_id": 2,"label":"contenido 2","count":2},
-//     {"_id": 3,"label":"contenido 3","count":3},
-//     {"_id": 4,"label":"contenido 4","count":4},
-//     {"_id": 5,"label":"contenido 5","count":5},
-//     {"_id": 6,"label":"contenido 6","count":6},
-//     {"_id": 7,"label":"contenido 7","count":7},
-//     {"_id": 8,"label":"contenido 8","count":8},
-//     {"_id": 9,"label":"contenido 9","count":9},
-//     {"_id": 10,"label":"contenido 10","count":10},
-//     {"_id": 11,"label":"contenido 11","count":11},
-//     {"_id": 12,"label":"contenido 12","count":12},
-//     {"_id": 13,"label":"contenido 13","count":13},
-//     {"_id": 14,"label":"contenido 14","count":14},
-//     {"_id": 15,"label":"contenido 15","count":15},
-//     {"_id": 16,"label":"contenido 16","count":16},
-// ];
+import {PRODUCT_LOADED, PRODUCT_LOADING, PRODUCT_INIT} from '../../utlts/store/reducers/prods.reducer';
 
 const ListProductos = () =>{
     const[{prods}, dispatch]= useStateContext();
@@ -38,6 +19,7 @@ const ListProductos = () =>{
     ;
     useEffect(
         ()=>{
+            dispatch({type: PRODUCT_INIT});
             dispatch({type: PRODUCT_LOADING})
             paxios.get('/api/productos/jeans')
             .then(({data})=>{
@@ -50,7 +32,7 @@ const ListProductos = () =>{
         }
     ,[]);
     return (
-        <Page headding="Blusas" footer={true}>
+        <Page headding="Jeans" footer={true}>
             <ul className="productoList">
                 {listElements}
             </ul>
