@@ -1,6 +1,6 @@
 const initialState = {
     hasMore:true,
-    products:[],
+    productos:[],
     total:0,
     currentPage:0,
     pageLimit:10,
@@ -9,20 +9,20 @@ const initialState = {
     currentId:null
   }
   
-  export const PRODUCT_LOADING = "";
-  export const PRODUCT_LOADED = "";
-  export const PRODUCT_ERROR = "";
-  export const PRODUCT_SET_CURRENT = "";
+  export const PRODUCT_LOADING = "PRODUCT_LOADING";
+  export const PRODUCT_LOADED = "PRODUCT_LOADED";
+  export const PRODUCT_ERROR = "PRODUCT_ERROR";
+  export const PRODUCT_SET_CURRENT = "PRODUCT_SET_CURRENT";
   
   
   const prodsReducer = (state = initialState, action = {}) =>{
     switch(action.type){
       case PRODUCT_LOADING:
-        return {...state};
+        return {...state, fetching:true};
       case PRODUCT_LOADED:
-        return {...state}
+        return {...state, productos:[...state.productos, ...action.payload], fetching:false}
       case PRODUCT_ERROR:
-        return {...state}
+        return {...state, fetching:false}
       case PRODUCT_SET_CURRENT:
         return {...state}
       default:
