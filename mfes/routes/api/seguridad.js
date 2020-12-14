@@ -36,8 +36,8 @@ router.post(
 router.post(
     '/signin', async (req, res)=>{
         try{
-            let {email, password}=req.body;
-            let resultado = await SecModel.addUsuario({email, password});
+            let {email, password,direccion, nombre}=req.body;
+            let resultado = await SecModel.addUsuario({email, password, direccion, nombre});
             res.status(200).json(resultado);
         }catch(ex){
             consolo.log(ex); 

@@ -4,6 +4,7 @@ import './ListProductos.css';
 import { useEffect, useState } from 'react';
 import { useStateContext } from '../../utlts/Context';
 import {paxios} from '../../utlts/Axios';
+import {useHistory} from 'react-router-dom';
 
 import {PRODUCT_LOADED, PRODUCT_LOADING, PRODUCT_INIT} from '../../utlts/store/reducers/prods.reducer';
 
@@ -27,6 +28,7 @@ import {PRODUCT_LOADED, PRODUCT_LOADING, PRODUCT_INIT} from '../../utlts/store/r
 // ];
 
 const ListProductos = () =>{
+    const history = useHistory();
     const[{prods}, dispatch]= useStateContext();
 
     const listElements =  prods.productos.map((o)=>{
@@ -55,7 +57,10 @@ const ListProductos = () =>{
             <ul className="productoList">
                 {listElements}
             </ul>
-            <AddButton style={{position:"fixed", right:"1em", bottom:"6em"}}></AddButton>
+            <AddButton style={{position:"fixed", right:"1em", bottom:"6em"}} 
+            onClick={(e)=>{history.push('/productos/new')}}>
+
+            </AddButton>
         </Page>
     );
 }
