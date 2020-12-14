@@ -14,7 +14,7 @@ import Login from './cmps/public/Login';
 
 import ListProductos from './cmps/private/ListProductos';
 import ListProductos2 from './cmps/private/ListProductos2';
-
+import Signin from './cmps/public/Signin'
 import NotFound from './cmps/public/NotFound';
 
 function App() {
@@ -31,6 +31,7 @@ function App() {
             >
               <Route path="/" exact component={Home} />
               <Route path="/login"  component={Login} />
+              <Route path="/signin"  component={Signin}/>
               <PrivateRoute path="/productos"  component={ListProductos}/>
               <PrivateRoute path="/productos2"  component={ListProductos2}/>
 
