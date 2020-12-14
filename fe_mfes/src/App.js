@@ -14,6 +14,7 @@ import Login from './cmps/public/Login';
 
 import ListProductos from './cmps/private/ListProductos';
 import ListProductos2 from './cmps/private/ListProductos2';
+import NewProducto from './cmps/private/NewProducto';
 
 import NotFound from './cmps/public/NotFound';
 
@@ -31,8 +32,10 @@ function App() {
             >
               <Route path="/" exact component={Home} />
               <Route path="/login"  component={Login} />
-              <PrivateRoute path="/productos"  component={ListProductos}/>
-              <PrivateRoute path="/productos2"  component={ListProductos2}/>
+              <PrivateRoute path="/productos" exact  component={ListProductos}/>
+              <PrivateRoute path="/productos2"  exact component={ListProductos2}/>
+              <PrivateRoute path="/productos/new" exact component={NewProducto}/>
+
 
               <Route path="*" component={NotFound} />
             </AnimatedSwitch>
