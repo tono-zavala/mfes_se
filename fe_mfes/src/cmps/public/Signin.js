@@ -1,20 +1,35 @@
 import { useState } from "react";
 import { useStateContext } from "../../utlts/Context"
+import { paxios } from "../../utlts/Axios";
 import { useHistory } from "react-router-dom";
 import Page from "../cmns/Page";
 import Field from "../cmns/Field";
+import { PrimaryButton, SecondaryButton } from '../cmns/Buttons'
 
 
 const Signin = ()=> {
     const [,dispatch] = useStateContext();
-    const [form, setForm] = useState({email:'', password:'',name:'',direction:''});
-
+    const [form, setForm] = useState({email:'', password:'',nombre:'',direccion:''});
+    const history = useHistory(); 
     const onChange = (e)=>{
         e.preventDefault();
         e.stopPropagation();
         const {name, value} = e.target;
         let newForm = {...form,[name]:value};
         setForm(newForm);
+    }
+    const addRegistro = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        paxios.post('api/seguridad/signin', form)
+            .then((data) =>{
+                console.log(data)
+                history.push("/");
+            })
+            .catch((ex) => {
+                console.log(ex);
+                alert("Algo salio mal al registrar");
+            })
     }
     return (
         <Page headding="Registrarse" footer={true}>
@@ -38,23 +53,24 @@ const Signin = ()=> {
 
             <Field 
             type="text" 
-            id="name" 
+            id="nombre" 
             placeholder="Nombre" 
             onChange={onChange} 
             caption="Nombre"
-            value={form.name}
+            value={form.nombre}
             />
 
             <Field 
             type="text" 
-            id="direction" 
+            id="direccion" 
             placeholder="Dirección" 
             onChange={onChange} 
             caption="Dirección"
-            value={form.direction}
+            value={form.direccion}
             />
             <section>
-            <button onClick={()=>{alert("Click para registrar"+JSON.stringify(form))}}>Registrarse</button>
+            <PrimaryButton onClick={addRegistro}>Registrarse</PrimaryButton>
+            <SecondaryButton onClick={ () => { history.push("/")}}>Regresar</SecondaryButton>
             </section>
         </Page>
     );

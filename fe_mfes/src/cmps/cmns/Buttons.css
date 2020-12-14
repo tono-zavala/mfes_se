@@ -18,3 +18,13 @@ button {
   background-color: #DB7093;
   color:#FFF;
 }
+
+.btnprimary{
+  background-color: #303f9f;
+  color:#fff;
+}
+
+.btnsecondary{
+  background-color: #7d0c02;
+  color:#fff;
+}
