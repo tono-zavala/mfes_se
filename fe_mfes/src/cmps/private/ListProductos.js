@@ -35,9 +35,12 @@ const ListProductos = () =>{
         let subdocument = o.colores || [{"color": "No disponible", "ide": Math.random()}];
         // let myData = this.props.myData || {}
         // console.log(subdocument);
-        return (<li key={o._id}>{o.nombre} {subdocument.map((ob)=><span key={ob.ide}  onClick={() => { dispatch({ type: PRODUCT_SET_CURRENT, payload:{_id:o._id}}); history.push("/productos/one");}}>{ob.color}</span>)}</li>);
-    })
-    ;
+        return (<li key={o._id} >{o.nombre}
+         {subdocument.map((ob)=>
+         <span key={ob.ide} onClick={() => { dispatch({ type: PRODUCT_SET_CURRENT, payload:{_id:o._id}}); history.push("/productos/one");}}>
+             {ob.color}
+         </span>)}</li>);
+    });
     useEffect(
         ()=>{
             dispatch({type: PRODUCT_INIT});
