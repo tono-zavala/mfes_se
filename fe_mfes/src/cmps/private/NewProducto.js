@@ -3,7 +3,7 @@ import Page from '../cmns/Page';
 import Field from '../cmns/Field'
 import { useState } from 'react';
 import {useHistory} from 'react-router-dom'
-import '../public/Login.css'
+import './NewProducto.css'
 import { paxios } from "../../utlts/Axios";
 
 const NewProducto =  ()=>{
@@ -33,6 +33,7 @@ const NewProducto =  ()=>{
     }
     return (
         <Page headding= "Nueva Blusa">
+        <div className="generalNuevoProducto">
             <Field
                 type="text"
                 id="nombre"
@@ -57,6 +58,7 @@ const NewProducto =  ()=>{
                 caption="precio"
                 value={form.precio}
             />
+        </div>
             <section className="loginsection">
                 <button onClick={addNewProducto}>Agregar</button>
                 <button onClick={()=>{history.push("/productos")}}>Cancelar</button>

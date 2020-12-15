@@ -3,7 +3,7 @@ import Page from '../cmns/Page';
 import Field from '../cmns/Field'
 import {useEffect, useState } from 'react';
 import {useHistory} from 'react-router-dom'
-import '../public/Login.css'
+import './NewDetalleBlusa.css'
 import { paxios } from "../../utlts/Axios";
 
 const NewProducto =  ()=>{
@@ -34,6 +34,7 @@ const NewProducto =  ()=>{
     }
     return (
         <Page headding= "Nuevo Color">
+        <div className="generalNuevoDetalle">
              <Field
                 type="text"
                 id= "color" 
@@ -57,7 +58,7 @@ const NewProducto =  ()=>{
                 id='talla_m'
                 placeholder='Disponibles en talla: "m"'
                 onChange={onChange}
-                caption='Talla "m"'
+                caption='Talla "M"'
                 value={form.talla_m} 
                 
             />
@@ -66,7 +67,7 @@ const NewProducto =  ()=>{
                 id='talla_l'
                 placeholder='Disponibles en talla: "l"'
                 onChange={onChange}
-                caption='Talla "l"'
+                caption='Talla "L"'
                 value={form.talla_l} 
                 
             />
@@ -75,7 +76,7 @@ const NewProducto =  ()=>{
                 id='talla_xl' 
                 placeholder='Disponibles en talla: "xl"'
                 onChange={onChange}
-                caption='Talla_xl'
+                caption='Talla "XL"'
                 value={form.talla_xl} 
                 
             />
@@ -87,7 +88,7 @@ const NewProducto =  ()=>{
                 value={form.cod_color} 
                 
             />
-            
+        </div>
             <section className="loginsection">
                 <button onClick={addNewProducto}>Agregar</button>
                 <button onClick={()=>{history.push("/productos")}}>Cancelar</button>

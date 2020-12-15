@@ -3,10 +3,12 @@ import Page from '../cmns/Page';
 import Field from '../cmns/Field'
 import {useEffect, useState } from 'react';
 import {useHistory} from 'react-router-dom'
-import '../public/Login.css'
+import './UnProducto.css'
 import { paxios } from "../../utlts/Axios";
 import { AddButton } from '../cmns/Buttons';
 import {PRODUCT_SET_CURRENT} from '../../utlts/store/reducers/prods.reducer';
+
+import blusas from '../../assets/blusa1.jpg'
 
 const UnProducto =  ()=>{
     const [{prods}, dispatch] = useStateContext();
@@ -51,8 +53,9 @@ const UnProducto =  ()=>{
         listElements = form.colores.map((o)=>{
        
             return (
-            <div key={o.ide}>
-                 <Field
+            <div className="contDescripcionColyTallas" key={o.ide}>
+
+                <Field
                     type="text"
                     id={o.color} 
                     placeholder="Color de Blusa"
@@ -60,6 +63,9 @@ const UnProducto =  ()=>{
                     value={o.color} 
                     readOnly={true}
                 />
+
+            <li className="tallas">
+                 <div className="tallasInt">
                 <Field
                     type="text"
                     id={o.talla_s} 
@@ -72,7 +78,7 @@ const UnProducto =  ()=>{
                     type="text"
                     id={o.talla_m} 
                     placeholder='Disponibles en talla: "m"'
-                    caption='Talla "m"'
+                    caption='Talla "M"'
                     value={o.talla_m} 
                     readOnly={true}
                 />
@@ -80,7 +86,7 @@ const UnProducto =  ()=>{
                     type="text"
                     id={o.talla_l} 
                     placeholder='Disponibles en talla: "l"'
-                    caption='Talla "l"'
+                    caption='Talla "L"'
                     value={o.talla_l} 
                     readOnly={true}
                 />
@@ -88,10 +94,12 @@ const UnProducto =  ()=>{
                     type="text"
                     id={o.talla_xl} 
                     placeholder='Disponibles en talla: "xl"'
-                    caption='Talla "xl"'
+                    caption='Talla "XL"'
                     value={o.talla_xl} 
                     readOnly={true}
                 />
+                </div>
+            </li>
             </div>);
         })
     }
@@ -99,30 +107,26 @@ const UnProducto =  ()=>{
 
     return (
         <Page headding= {form.nombre}>
-            <Field
-                type="text"
-                id="nombre"
-                placeholder="Nombre de Blusa"
-                caption="nombre"
-                value={form.nombre}
-                readOnly={true}
-            />
-            <Field
-                type="text"
-                id="descripcion"
-                placeholder="Descripción de Blusa"
-                caption="descripcion"
-                value={form.descripcion}
-                readOnly={true}
-            />
-            <Field
-                type="text"
-                id="precio"
-                placeholder="Precio de Blusa"
-                caption="precio"
-                value={form.precio}
-                readOnly={true}
-            />
+            <div className="contDescripcionColyTallas">
+                <img src={blusas}/>
+        
+                <Field
+                    type="text"
+                    id="descripcion"
+                    placeholder="Descripción de Blusa"
+                    caption="descripcion"
+                    value={form.descripcion}
+                    readOnly={true}
+                />
+                <Field
+                    type="text"
+                    id="precio"
+                    placeholder="Precio de Blusa"
+                    caption="precio Lps."
+                    value={form.precio}
+                    readOnly={true}
+                />
+            </div>
             {listElements}
             <section className="loginsection">
                 <button onClick={()=>{history.push("/productos")}}>Cancelar</button>
