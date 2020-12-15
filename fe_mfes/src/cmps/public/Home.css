@@ -28,3 +28,7 @@ img {
   box-shadow: 1px 1px 10px #DB7093;
   width: 90%;
 }
+.eslogan p{
+  color: #e27e9d;
+  font-size: 2em;
+}
