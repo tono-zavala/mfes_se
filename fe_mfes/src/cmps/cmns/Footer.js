@@ -21,7 +21,7 @@ const Footer = ()=>{
         <li><NavLink to="/"><MdHome size="2em"/></NavLink></li>
         <li><NavLink to="/productos"><GiPoloShirt size="2em"/></NavLink></li>
         <li><NavLink to="/productos2"><GiArmoredPants size="2em"/></NavLink></li>
-        <li><NavLink to="/logout"><CgLogOut size="2em" /></NavLink></li>
+        <li><NavLink to="/"><CgLogOut size="2em" /></NavLink></li>
       </ul>
     );
   }

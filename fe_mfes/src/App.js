@@ -17,8 +17,11 @@ import ListProductos2 from './cmps/private/ListProductos2';
 import Signin from './cmps/public/Signin'
 
 import NewProducto from './cmps/private/NewProducto';
+import NewProducto2 from './cmps/private/NewProducto2';
 import UnProducto from './cmps/private/UnProducto';
+import UnProducto2 from './cmps/private/UnProducto2';
 import NewDetalleBlusa from './cmps/private/NewDetalleBlusa';
+import NewDetalleJean from './cmps/private/NewDetalleJeans';
 
 import NotFound from './cmps/public/NotFound';
 
@@ -41,8 +44,11 @@ function App() {
               <PrivateRoute path="/productos" exact  component={ListProductos}/>
               <PrivateRoute path="/productos2"  exact component={ListProductos2}/>
               <PrivateRoute path="/productos/new" exact component={NewProducto}/>
+              <PrivateRoute path="/productos/new2" exact component={NewProducto2}/>
               <PrivateRoute path="/productos/one" exact component={UnProducto}/>
+              <PrivateRoute path="/productos/one2" exact component={UnProducto2}/>
               <PrivateRoute path="/productos/one/blusas/add" exact component={NewDetalleBlusa}/>
+              <PrivateRoute path="/productos/one/jeans/add2" exact component={NewDetalleJean}/>
 
 
               <Route path="*" component={NotFound} />
