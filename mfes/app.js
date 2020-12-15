@@ -33,6 +33,9 @@ app.use('/users', usersRouter);
 // Incoporado por el el equipo
 
 app.use('/api', apiRouter);
+app.get('/*',(req, res)=>{
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 // Fin incorporacion
 
 // catch 404 and forward to error handler

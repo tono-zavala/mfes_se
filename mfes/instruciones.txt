@@ -92,3 +92,5 @@ npm install --save axios
 
 
 DSUBIR A HEROKU
+entrar en el FrontEnd
+npm install --save-dev cpx
