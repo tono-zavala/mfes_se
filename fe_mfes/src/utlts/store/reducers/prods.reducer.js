@@ -27,7 +27,7 @@ const initialState = {
       case PRODUCT_ERROR:
         return {...state, fetching:false}
       case PRODUCT_SET_CURRENT:
-        return {...state}
+        return {...state, currentId: action.payload._id}
       default:
         return state;
     }

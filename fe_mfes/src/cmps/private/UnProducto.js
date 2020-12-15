@@ -1,16 +1,38 @@
 import {useStateContext} from "../../utlts/Context";
 import Page from '../cmns/Page';
 import Field from '../cmns/Field'
-import { useState } from 'react';
+import {useEffect, useState } from 'react';
 import {useHistory} from 'react-router-dom'
 import '../public/Login.css'
 import { paxios } from "../../utlts/Axios";
 
-const NewProducto =  ()=>{
-    const [{prods}, dispatch] = useStateContext();
+
+const UnProducto =  ()=>{
+    const [{prods}, ] = useStateContext();
     const [form, setForm] = useState({nombre:'', descripcion:'', precio: '', categoria:'blusas'});
     const history = useHistory();
-    
+    useEffect(
+        ()=>{
+            const _id = prods.currentId;
+            paxios.get(`/api/productos/one/${_id}`)
+            .then(({data})=>{
+                setForm(data);
+                console.log(data);
+            })
+            .catch((ex)=>{
+                console.log(ex);
+                alert("Algo Salio Mal");
+                history.push('/productos')
+            })
+
+        }
+        ,[]
+    )
+
+    if(form.nombre===''){
+        return (<h1>Cargando...</h1>);
+    }
+
     return (
         <Page headding= {form.nombre}>
             <Field
@@ -19,7 +41,7 @@ const NewProducto =  ()=>{
                 placeholder="Nombre de Blusa"
                 caption="nombre"
                 value={form.nombre}
-                readonly={true}
+                readOnly={true}
             />
             <Field
                 type="text"
@@ -27,7 +49,7 @@ const NewProducto =  ()=>{
                 placeholder="Descripción de Blusa"
                 caption="descripcion"
                 value={form.descripcion}
-                readonly={true}
+                readOnly={true}
             />
             <Field
                 type="text"
@@ -35,10 +57,10 @@ const NewProducto =  ()=>{
                 placeholder="Precio de Blusa"
                 caption="precio"
                 value={form.precio}
-                readonly={true}
+                readOnly={true}
             />
             <section className="loginsection">
-                <button onClick={()=>{history.push('/productos/blusas/add/'+{})}}>Agregar </button>
+                <button onClick={()=>{history.push('/productos/blusas/add')}}>Agregar Detalles</button>
                 <button onClick={()=>{history.push("/productos")}}>Cancelar</button>
             </section>
         </Page>
@@ -48,7 +70,7 @@ const NewProducto =  ()=>{
 
 }
 
-export default NewProducto;
+export default UnProducto;
 // nombre 
     // descripcion 
     // categoria 

@@ -6,7 +6,7 @@ import { useStateContext } from '../../utlts/Context';
 import {paxios} from '../../utlts/Axios';
 import {useHistory} from 'react-router-dom';
 
-import {PRODUCT_LOADED, PRODUCT_LOADING, PRODUCT_INIT} from '../../utlts/store/reducers/prods.reducer';
+import {PRODUCT_LOADED, PRODUCT_LOADING, PRODUCT_INIT, PRODUCT_SET_CURRENT} from '../../utlts/store/reducers/prods.reducer';
 
 // const dummyData = [
 //     {"_id": 1,"label":"contenido 1","count":1},
@@ -35,7 +35,7 @@ const ListProductos = () =>{
         let subdocument = o.colores || [{"color": "No disponible", "ide": Math.random()}];
         // let myData = this.props.myData || {}
         // console.log(subdocument);
-        return (<li key={o._id}>{o.nombre} {subdocument.map((ob)=><span key={ob.ide}>{ob.color}</span>)}</li>);
+        return (<li key={o._id}>{o.nombre} {subdocument.map((ob)=><span key={ob.ide}  onClick={() => { dispatch({ type: PRODUCT_SET_CURRENT, payload:{_id:o._id}}); history.push("/productos/one");}}>{ob.color}</span>)}</li>);
     })
     ;
     useEffect(
